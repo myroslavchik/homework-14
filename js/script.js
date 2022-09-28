@@ -17,7 +17,7 @@ alert(`${numberOne + numberTwo}`)
 // Програма повинна порахувати скільки файлів розміром в 820 Мб поміщається на флешку.
 
 let amount = +prompt('Вкажіть обсяг флешки в гігабайтах');
-let megabite = amount * 1000;
+let megabite = amount * 1024;
 let result = (megabite / 820).toFixed(1);
 let resultFloor = Math.floor(result);
 alert(`${resultFloor} файлів розміром в 820 Мб поміщається на флешку.`);
@@ -31,7 +31,7 @@ let chocolate = +prompt(`Вкажіть ціну шоколадки`);
 let resultD = Math.floor(money / chocolate);
 let change = money - (chocolate * resultD);
 
-alert(`Ви можете купити ${result.toFixed(0)} шоколадок(ки), у вас залишиться ${change} грн`)
+alert(`Ви можете купити ${resultD.toFixed(0)} шоколадок(ки), у вас залишиться ${change.toFixed(1)} грн`);
 
 
 // Запитай у користувача тризначне число і виведи його задом наперед.
@@ -39,8 +39,10 @@ alert(`Ви можете купити ${result.toFixed(0)} шоколадок(к
 
 
 let number = prompt(`Вкажіть тризначне число`);
-let reversed = number[2] + number[1] + number[0];
-alert(`Ваше число задом наперед ${reversed}`);
+let units = number % 10;
+let hundreds = Math.floor(number / 100);
+let dozens = ((number - hundreds * 100 - 2) / 10).toFixed(0);
+alert(`${units}${dozens}${hundreds}`)
 
 
 // Користувач вводить суму вкладу в банк на 2 місяці,
